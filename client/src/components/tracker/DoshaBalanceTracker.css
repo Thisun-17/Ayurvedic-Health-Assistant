@@ -1,0 +1,159 @@
+.dosha-balance-tracker {
+  padding: 1rem 0;
+}
+
+.dosha-balance-tracker h3 {
+  color: #4a7c59;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.dosha-balance-meters {
+  margin-bottom: 2rem;
+}
+
+.dosha-meter {
+  margin-bottom: 1.5rem;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.dosha-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.dosha-title h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.dosha-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.dosha-status.balanced {
+  background-color: #4caf50;
+  color: white;
+}
+
+.dosha-status.increased {
+  background-color: #ff9800;
+  color: white;
+}
+
+.dosha-status.decreased {
+  background-color: #2196f3;
+  color: white;
+}
+
+.dosha-bar {
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.dosha-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.dosha-bar-fill.vata {
+  background-color: #8ecae6;
+}
+
+.dosha-bar-fill.pitta {
+  background-color: #e76f51;
+}
+
+.dosha-bar-fill.kapha {
+  background-color: #606c38;
+}
+
+.dosha-bar-fill.balanced {
+  opacity: 0.8;
+}
+
+.dosha-bar-fill.increased {
+  opacity: 1;
+}
+
+.dosha-bar-fill.decreased {
+  opacity: 0.6;
+}
+
+.dosha-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.dosha-description span {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.dosha-description p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.dosha-recommendations {
+  margin-top: 2rem;
+}
+
+.recommendations-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.recommendation-card {
+  display: flex;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-left: 4px solid #4a7c59;
+  border-radius: 4px;
+  align-items: flex-start;
+}
+
+.recommendation-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.recommendation-content {
+  flex: 1;
+}
+
+.recommendation-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #4a7c59;
+}
+
+.recommendation-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .recommendations-list {
+    grid-template-columns: 1fr;
+  }
+}
