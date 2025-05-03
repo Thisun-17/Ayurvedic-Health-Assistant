@@ -1,0 +1,144 @@
+.calendar {
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.calendar-nav-button {
+  background-color: #f5f5f5;
+  color: #4a7c59;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.calendar-nav-button:hover {
+  background-color: #e0e0e0;
+}
+
+.calendar-header h3 {
+  margin: 0;
+  color: #4a7c59;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  font-weight: 500;
+}
+
+.day-name {
+  font-weight: bold;
+  color: #666;
+  cursor: default;
+}
+
+.calendar-day:not(.day-name):not(.empty):hover {
+  background-color: #f0f0f0;
+}
+
+.calendar-day.active {
+  background-color: #4a7c59;
+  color: white;
+}
+
+.calendar-day.today {
+  border: 2px solid #4a7c59;
+  font-weight: bold;
+}
+
+.calendar-day.active.today {
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #4a7c59;
+}
+
+.calendar-day.has-entry::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  width: 4px;
+  height: 4px;
+  background-color: #ff9800;
+  border-radius: 50%;
+}
+
+.calendar-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-color.today {
+  border: 2px solid #4a7c59;
+}
+
+.legend-color.active {
+  background-color: #4a7c59;
+}
+
+.legend-color.has-entry {
+  background-color: #ff9800;
+}
+
+@media (max-width: 576px) {
+  .calendar-day {
+    font-size: 0.85rem;
+  }
+  
+  .calendar-header h3 {
+    font-size: 1rem;
+  }
+  
+  .calendar-nav-button {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .calendar-legend {
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+  }
+}
