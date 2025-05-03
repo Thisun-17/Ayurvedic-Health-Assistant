@@ -1,10 +1,14 @@
 import React from 'react';
+import DoshaQuiz from '../components/DoshaQuiz';
+import '../styles/Home.css';
 
 function Home() {
   return (
     <div className="home-page">
       <h1>Welcome to Your Ayurvedic Health Assistant</h1>
       <p>Discover personalized wellness based on ancient wisdom</p>
+      
+      <DoshaQuiz />
       
       <div className="features-section">
         <div className="feature">
