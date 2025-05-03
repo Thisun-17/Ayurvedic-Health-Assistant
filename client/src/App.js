@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import HealthTracker from './pages/HealthTracker';
 import Practitioners from './pages/Practitioners';
+import Registration from './pages/Registration';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/tracker" element={<HealthTracker />} />
             <Route path="/practitioners" element={<Practitioners />} />
+            <Route path="/register" element={<Registration />} />
           </Routes>
         </main>
       </div>
