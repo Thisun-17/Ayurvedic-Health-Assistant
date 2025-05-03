@@ -1,16 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
+import HealthTracker from './pages/HealthTracker';
+import Practitioners from './pages/Practitioners';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <header className="App-header">
-        <h1>Ayurvedic Health Assistant</h1>
-        <p>Your personal wellness companion</p>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <main className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/tracker" element={<HealthTracker />} />
+            <Route path="/practitioners" element={<Practitioners />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
