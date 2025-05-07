@@ -14,10 +14,15 @@ function DoshaQuiz() {
     const fetchQuizQuestions = async () => {
       try {
         setLoading(true);
-        const data = await doshaService.getQuizQuestions();
-        setQuestions(data);
-        // Initialize empty answers array based on number of questions
-        setAnswers(Array(data.length).fill(null));
+        const response = await doshaService.getQuizQuestions();
+        // Extract questions from the response
+        if (response && response.success && response.questions) {
+          setQuestions(response.questions);
+          // Initialize empty answers array based on number of questions
+          setAnswers(Array(response.questions.length).fill(null));
+        } else {
+          throw new Error('Invalid response format from server');
+        }
         setLoading(false);
       } catch (err) {
         setError('Failed to load quiz questions. Please try again later.');
@@ -44,8 +49,13 @@ function DoshaQuiz() {
   const submitQuiz = async (finalAnswers) => {
     try {
       setLoading(true);
-      const quizResult = await doshaService.submitQuizAnswers(finalAnswers);
-      setResult(quizResult);
+      const response = await doshaService.submitQuizAnswers(finalAnswers);
+      // Check for the proper response structure
+      if (response && response.success && response.result) {
+        setResult(response.result);
+      } else {
+        throw new Error('Invalid result format from server');
+      }
       setLoading(false);
     } catch (err) {
       setError('Failed to submit quiz. Please try again.');
@@ -60,6 +70,26 @@ function DoshaQuiz() {
     setResult(null);
   };
 
+  // Try again button handler that forces a refresh of the quiz data
+  const handleRetry = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const response = await doshaService.getQuizQuestions();
+      if (response && response.success && response.questions) {
+        setQuestions(response.questions);
+        setAnswers(Array(response.questions.length).fill(null));
+      } else {
+        throw new Error('Invalid response format from server');
+      }
+      setLoading(false);
+    } catch (err) {
+      setError('Failed to load quiz questions. Please try again later.');
+      setLoading(false);
+      console.error('Error fetching quiz questions:', err);
+    }
+  };
+
   if (loading) {
     return (
       <div className="dosha-quiz">
@@ -72,7 +102,7 @@ function DoshaQuiz() {
     return (
       <div className="dosha-quiz">
         <div className="error">{error}</div>
-        <button onClick={() => window.location.reload()}>Retry</button>
+        <button onClick={handleRetry}>Retry</button>
       </div>
     );
   }

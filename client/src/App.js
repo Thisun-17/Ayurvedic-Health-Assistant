@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import HealthTracker from './pages/HealthTracker';
 import Practitioners from './pages/Practitioners';
 import Registration from './pages/Registration';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/tracker" element={<HealthTracker />} />
             <Route path="/practitioners" element={<Practitioners />} />
             <Route path="/register" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
       </div>
